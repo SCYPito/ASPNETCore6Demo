@@ -1,0 +1,37 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    //iisSettings： 顧名思義就是給 IIS 讀的。當啟動的方式為 IIS時便會去讀取這裡的設定。
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:51628",
+      "sslPort": 44365
+    }
+  },
+  "profiles": {
+    //profiles ：啟動方式(綠色箭頭)對應的設定檔。
+    "ToDo": {
+      "commandName": "Project",
+      //commandName：定義啟動方式 Project 為輕量的執行端，比使用 IIS快上許多。*如果有需要結合 AD 進行測試，必須使用 IIS。
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      //launchBrowser：是否開啟網頁。
+      "launchUrl": "weatherforecast",
+      "applicationUrl": "https://localhost:44365;http://localhost:5235",
+      //Port號修改的部分不了解
+      "environmentVariables": {
+        //environmentVariables：設定環境變數。
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
