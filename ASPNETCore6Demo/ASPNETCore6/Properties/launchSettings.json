@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ASPNETCore6": {
+      "commandName": "Project",
+      "commandLineArgs": "Bruce"
+      //argsªº³]©w
+    }
+  }
+}
