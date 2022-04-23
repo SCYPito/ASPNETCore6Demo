@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETCore5", "ASPNETCore5\ASPNETCore5.csproj", "{2C2389BB-BA22-4B48-BBB9-82B4E2A841D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore5", "ASPNETCore5\ASPNETCore5.csproj", "{2C2389BB-BA22-4B48-BBB9-82B4E2A841D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETCore6", "ASPNETCore6\ASPNETCore6.csproj", "{187C7B89-D720-4496-BAC4-53AD6F71384D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore6", "ASPNETCore6\ASPNETCore6.csproj", "{187C7B89-D720-4496-BAC4-53AD6F71384D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorSeverNet5", "BlazorSeverNET5\BlazorSeverNet5.csproj", "{21EF5ED8-EC9F-43C2-9FD8-748855586EB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSeverNet5", "BlazorSeverNET5\BlazorSeverNet5.csproj", "{21EF5ED8-EC9F-43C2-9FD8-748855586EB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmNet5", "BlazorWasmNet5\BlazorWasmNet5.csproj", "{C094A2E5-D469-4F70-A588-A3C3F8C8676C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmNet5", "BlazorWasmNet5\BlazorWasmNet5.csproj", "{C094A2E5-D469-4F70-A588-A3C3F8C8676C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmNet6", "BlazorWasmNet6\BlazorWasmNet6.csproj", "{478B951B-F046-4EBE-8C6F-4A1EE09BAA65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmNet6", "BlazorWasmNet6\BlazorWasmNet6.csproj", "{478B951B-F046-4EBE-8C6F-4A1EE09BAA65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorSeverNet6", "BlazorSeverNet6\BlazorSeverNet6.csproj", "{A3F0DCA6-014D-418F-B8D6-47A67017D3FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSeverNet6", "BlazorSeverNet6\BlazorSeverNet6.csproj", "{A3F0DCA6-014D-418F-B8D6-47A67017D3FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
