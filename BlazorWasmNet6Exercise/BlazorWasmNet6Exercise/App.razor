@@ -1,0 +1,16 @@
+﻿<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        @*DefaultLayout若有不同頁面要套用不同Layout，也可以自己定義。*@
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    @*當輸入的網址在routeData找到匹配的Component則會進入這裡*@
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+        @*DefaultLayout若有不同頁面要套用不同Layout，也可以自己定義。*@
+            <p role="alert">Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+    @*在routeData找不到匹配的Component則會進入這裡*@
+</Router>

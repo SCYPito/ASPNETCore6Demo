@@ -1,0 +1,23 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p> 
+
+@*@currentCount定義的方式跟畫面呈現就是一種模型繫結(model binding)
+如.NET Framework的View的@model或是@Viewbag。*@
+
+<button class="btn btn-primary @myClass" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private string myClass = "text-primary bg-warning";
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

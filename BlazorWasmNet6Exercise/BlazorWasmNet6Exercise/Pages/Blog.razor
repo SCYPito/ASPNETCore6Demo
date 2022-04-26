@@ -1,0 +1,31 @@
+﻿@page "/Blog"
+@inherits BlogBase
+
+@if (Blog == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="form-group">
+        <label>部落格名稱</label>
+        <input @bind-value="Blog.BlogName" class="form-control w-25">
+    </div>
+    foreach (var post in Blog.Posts)
+    {
+        <div class="border rounded p-3 w-25">
+            <CascadingValue Value="FontSizeStyle" Name="FontSizeStyle" IsFixed="true">
+                <CascadingValue Value="ColorStyle" Name="ColorStyle">
+                    <Post Post="post"></Post>
+                </CascadingValue>
+            </CascadingValue>
+        </div>
+        <br />
+    }
+}
+
+
+
+@code {
+
+}

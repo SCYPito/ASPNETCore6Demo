@@ -1,0 +1,42 @@
+﻿@inherits PostBase
+
+
+<div class="form-group">
+    <div class="form-group">
+        <label for="updateTime">更新時間</label>
+        <input type="text" class="form-control" @bind="Post.CreateDateTime" @bind:format="yyyy-MM-dd hh:mm:ss" disabled />
+    </div>
+    <EditForm EditContext="@editContext">
+
+        <DataAnnotationsValidator />
+
+        <ValidationSummary />
+        @*<InputNumber @bind-Value="Post.Id" class="form-control w-25"></InputNumber>*@
+
+
+        <div class="form-group">
+            <label for="title" style="@ColorStyle">標題</label>
+            <InputText @bind-Value="Post.Title" id="title" class="form-control"></InputText>
+        </div>
+
+        <div class="form-group">
+            <label for="content">內容</label>
+            <InputTextArea @bind-Value="Post.Content" id="content" class="form-control" rows="8"></InputTextArea>
+        </div>
+
+
+        @*
+            <MyButton ButtonType="submit" ButtonClass="btn btn-info col-1" ButtonName="Submit"></MyButton>
+            <MyButton ButtonType="reset" ButtonClass="btn btn-danger col-1" ButtonName="Reset"></MyButton>
+        *@
+        @*
+            <MyButton InputAttributes="InputAttributes"></MyButton>
+            <MyButton InputAttributes="InputAttributes"></MyButton>
+        *@
+        <MyButton value="Submit" class="btn btn-primary" type="button"></MyButton>
+        <MyButton value="Reset" class="btn btn-danger" type="button"></MyButton>
+    </EditForm>
+</div>
+@code {
+
+}
