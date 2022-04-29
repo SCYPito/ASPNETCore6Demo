@@ -12,8 +12,8 @@
 
         <ValidationSummary />
         @*<InputNumber @bind-Value="Post.Id" class="form-control w-25"></InputNumber>*@
-
-
+        <label>Post Id:</label>
+        <span class="w-25">@Post.PostId</span>
         <div class="form-group">
             <label for="title" style="@ColorStyle">標題</label>
             <InputText @bind-Value="Post.Title" id="title" class="form-control"></InputText>
@@ -34,7 +34,10 @@
             <MyButton InputAttributes="InputAttributes"></MyButton>
         *@
         <MyButton value="Submit" class="btn btn-primary" type="button"></MyButton>
-        <MyButton value="Reset" class="btn btn-danger" type="button"></MyButton>
+        <MyButton value="Reset" class="btn btn-danger" type="reset"></MyButton>
+          <input value="Delete" class="btn btn-danger" type="button" @onclick="returnPostId" />
+        @*        <input value="Delete" class="btn btn-danger" type="button"@onclick="deletePost" />*@
+        @*  <MyButton value="Delete" class="btn btn-danger" type="button"></MyButton>*@
     </EditForm>
 </div>
 @code {

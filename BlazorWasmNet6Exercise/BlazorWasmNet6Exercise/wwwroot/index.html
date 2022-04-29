@@ -16,11 +16,39 @@
     <div id="app">Loading...</div>
 
     <div id="blazor-error-ui">
+
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        function SwetConfirm(title) {
+            return new Promise((resolve) => {
+                Swal.fire({
+                    title: title,
+                    text: "這個動作不可復原",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: "取消",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "確定",
+                    confirmButtonColor: "#3085d6"
+                }).then((result) => {
+                    resolve(result.isConfirmed);
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            "刪除成功",
+                            "日誌被刪除了",
+                            "success"
+                        );
+                    }
+                })
+            });
+        }
+    </script>
+
 </body>
 
 </html>
