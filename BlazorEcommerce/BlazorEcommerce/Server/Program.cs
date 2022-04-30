@@ -2,6 +2,7 @@ global using BlazorEcommerce.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.AspNetCore.Http;
 global using BlazorEcommerce.Server.Data;
+global using BlazorEcommerce.Server.Services.ProductService;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,9 @@ builder.Services.AddEndpointsApiExplorer();
 //增加API端點管理器
 builder.Services.AddSwaggerGen();
 //增加應用程序
+
+builder.Services.AddScoped<IProductService, ProductService>();
+//利用額外的介面及類別可以在不更動原有資料下進行變化
 
 var app = builder.Build();
 
