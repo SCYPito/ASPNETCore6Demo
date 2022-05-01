@@ -8,5 +8,9 @@
         //ProductDetails Server部分
         Task<ServiceResponse<List<Product>>> GetProductsByCategory(string categoryUrl);
         //利用categoryUrl搜尋該類別取得清單
+        Task<ServiceResponse<List<Product>>> SearchProducts(string searchText);
+        //Server接受搜尋字串取得清單
+        Task<ServiceResponse<List<string>>> GetProductSearchSuggestions(string searchText);
+        //
     }
 }

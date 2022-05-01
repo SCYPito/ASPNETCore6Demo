@@ -1,7 +1,8 @@
 ﻿@page "/"
+@page "/search/{searchText}/{page:int}"
 @page "/{categoryUrl}"
 @inject IProductService ProductService
-@implements IDisposable 
+
 
 <PageTitle>My Shop</PageTitle>
 
@@ -11,19 +12,18 @@
 @code {
     [Parameter]
     public string? CategoryUrl { get; set; } = null;
+    public string? SearchText { get; set; } = null;
 
-    protected override void OnInitialized()
+    protected override async Task OnParametersSetAsync()
     {
-        ProductService.ProductsChanged += StateHasChanged;
+        if (SearchText != null)
+        {
+            await ProductService.SearchProducts(SearchText);
+        }
+        else
+        {
+            await ProductService.GetProducts(CategoryUrl);
+        }
     }
 
-    public void Dispose()
-    {
-        ProductService.ProductsChanged -= StateHasChanged;
-    }
-
-    //   protected override async Task OnParametersSetAsync()
-    //{
-    //    ProductService.ProductsChanged += StateHasChanged;
-    //}
 }

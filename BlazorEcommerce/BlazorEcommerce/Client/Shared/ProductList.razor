@@ -1,5 +1,6 @@
 ﻿@*inject HttpClient Http*@
 @inject IProductService ProductService
+@implements IDisposable
 
 @if (ProductService.Products == null || ProductService.Products.Count == 0)
 {
@@ -22,7 +23,7 @@ else
                     </a>
                     <p>@product.Description</p>
                     <h5 class="price">
-                       @* $@product.Price*@
+                     @GetPriceText(product)
                     </h5>
                 </div>
             </li>
@@ -31,23 +32,47 @@ else
 }
 
 @code {
-    private static List<Product> Products = new List<Product>();
+    //private static List<Product> Products = new List<Product>();
 
 
-    protected override async Task OnInitializedAsync()
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    #region  DataContext
+    //    //var result = await Http.GetFromJsonAsync<List<Product>>("api/Product");
+    //    //if(result!=null)
+    //    //{
+    //    //    Products = result;
+    //    //}
+
+    //    //var result =
+    //    //    await Http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/Product");
+    //    //if (result != null && result.Data != null)
+    //    //    Products = result.Data;
+    //    #endregion
+    //    await ProductService.GetProducts();
+    //}
+     protected override void OnInitialized()
     {
-        #region  DataContext
-        //var result = await Http.GetFromJsonAsync<List<Product>>("api/Product");
-        //if(result!=null)
-        //{
-        //    Products = result;
-        //}
+        ProductService.ProductsChanged += StateHasChanged;
+    }
 
-        //var result =
-        //    await Http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/Product");
-        //if (result != null && result.Data != null)
-        //    Products = result.Data;
-        #endregion
-        await ProductService.GetProducts();
+    public void Dispose()
+    {
+        ProductService.ProductsChanged -= StateHasChanged;
+    }
+
+    private string GetPriceText(Product product)
+    {
+        var variants = product.Variants;
+        if (variants.Count == 0)
+        {
+            return string.Empty;
+        }
+        else if (variants.Count == 1)
+        {
+            return $"${variants[0].Price}";
+        }
+        decimal minPrice = variants.Min(v => v.Price);
+        return $"Starting at ${minPrice}";
     }
 }
