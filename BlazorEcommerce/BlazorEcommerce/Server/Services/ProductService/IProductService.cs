@@ -6,6 +6,7 @@
         //在介面中可宣告方法名稱 再交給類別進行實作
         Task<ServiceResponse<Product>> GetProductAsync(int productId);
         //ProductDetails Server部分
-
+        Task<ServiceResponse<List<Product>>> GetProductsByCategory(string categoryUrl);
+        //利用categoryUrl搜尋該類別取得清單
     }
 }

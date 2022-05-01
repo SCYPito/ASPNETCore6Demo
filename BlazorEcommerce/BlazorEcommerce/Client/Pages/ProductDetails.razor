@@ -15,7 +15,7 @@ else
             <h2 class="mb-0">@product.Title</h2>
             <p>@product.Description</p>
             <h4 class="price">
-                $@product.Price
+          @*      $@product.Price*@
             </h4>
         </div>
     </div>
@@ -29,10 +29,8 @@ else
     [Parameter]
     public int Id { get; set; }
 
-    protected override async Task OnParametersSetAsync()
+  protected override async Task OnParametersSetAsync()
     {
-
-        product = ProductService.Products.Find(p => p.Id == Id);
         message = "Loading product...";
 
         var result = await ProductService.GetProduct(Id);

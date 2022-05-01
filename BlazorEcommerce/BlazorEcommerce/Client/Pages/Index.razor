@@ -1,6 +1,29 @@
 ﻿@page "/"
+@page "/{categoryUrl}"
+@inject IProductService ProductService
+@implements IDisposable 
 
 <PageTitle>My Shop</PageTitle>
 
-<ProductList/>
+<ProductList />
 @*SurveyPrompt compoent的部分放在Cleint端的Share資料夾*@
+
+@code {
+    [Parameter]
+    public string? CategoryUrl { get; set; } = null;
+
+    protected override void OnInitialized()
+    {
+        ProductService.ProductsChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        ProductService.ProductsChanged -= StateHasChanged;
+    }
+
+    //   protected override async Task OnParametersSetAsync()
+    //{
+    //    ProductService.ProductsChanged += StateHasChanged;
+    //}
+}
