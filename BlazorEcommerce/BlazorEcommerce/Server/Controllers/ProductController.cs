@@ -6,6 +6,12 @@ namespace BlazorEcommerce.Server.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        //[HttpGet]
+        //public async Task<IActionResult> GetProduct()
+        //{
+        //    return Ok(Products);
+        //}
+        #region DataContext
         //private readonly DataContext _context;
 
         //public ProductController(DataContext context)
@@ -13,19 +19,7 @@ namespace BlazorEcommerce.Server.Controllers
         //    _context = context;
         //}
 
-        private readonly IProductService _productService;
-        public ProductController(IProductService productService)
-        {
-            _productService = productService;
-        }
-
-
-
         //[HttpGet]
-        //public async Task<IActionResult> GetProduct()
-        //{
-        //    return Ok(Products);
-        //}
         //public async Task<ActionResult<List<Product>>> GetProduct()
         //{
         //    var products = await _context.Products.ToListAsync();
@@ -35,6 +29,15 @@ namespace BlazorEcommerce.Server.Controllers
         //    };
         //    return Ok(response);
         //}
+        #endregion
+
+        #region IProductService
+        private readonly IProductService _productService;
+        public ProductController(IProductService productService)
+        {
+            _productService = productService;
+        }
+
         [HttpGet]
         public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProducts()
         {
@@ -45,11 +48,14 @@ namespace BlazorEcommerce.Server.Controllers
         //[HttpGet]
         //[Route("{id}")]
         [HttpGet("productId")]
-        public async Task<ActionResult<ServiceResponse<Product>>> GetProduct(int productId) 
+        public async Task<ActionResult<ServiceResponse<Product>>> GetProduct(int productId)
         {
             var result = await _productService.GetProductAsync(productId);
             return Ok(result);
         }
+        #endregion
+
+
 
     }
 }
