@@ -3,22 +3,35 @@
 @page "/{categoryUrl}"
 @inject IProductService ProductService
 
-
 <PageTitle>My Shop</PageTitle>
 
-<ProductList />
-@*SurveyPrompt compoent的部分放在Cleint端的Share資料夾*@
+@if (SearchText == null && CategoryUrl == null)
+{
+    <FeaturedProducts />
+}
+else
+{
+    <ProductList />
+}
+
+@*FeaturedProducts compoent的部分放在Cleint端的Share資料夾*@
 
 @code {
     [Parameter]
     public string? CategoryUrl { get; set; } = null;
+    //CategoryUrl Route 參數 一定要加 [Parameter]屬性
+    [Parameter]
     public string? SearchText { get; set; } = null;
+    //SearchText Route 參數 一定要加 [Parameter]屬性
+    [Parameter]
+    public int Page { get; set; } = 1;
+    //Page Route 參數 一定要加 [Parameter]屬性
 
     protected override async Task OnParametersSetAsync()
     {
         if (SearchText != null)
         {
-            await ProductService.SearchProducts(SearchText);
+            await ProductService.SearchProducts(SearchText, Page);
         }
         else
         {

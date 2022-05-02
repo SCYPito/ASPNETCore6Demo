@@ -4,7 +4,7 @@
 
 @if (ProductService.Products == null || ProductService.Products.Count == 0)
 {
-    <span>Loading Products...</span>
+    <<span>@ProductService.Message</span>
 }
 else
 {
@@ -23,12 +23,19 @@ else
                     </a>
                     <p>@product.Description</p>
                     <h5 class="price">
-                     @GetPriceText(product)
+                        @GetPriceText(product)
                     </h5>
                 </div>
             </li>
         }
     </ul>
+    for (var i = 1; i <= ProductService.PageCount; i++)
+    {
+        <a class="btn
+                 @(i == ProductService.CurrentPage ? "btn-info" : "btn-outline-info")
+                 page-selection"
+                 href="/search/@ProductService.LastSearchText/@i">@i</a>
+    }
 }
 
 @code {
@@ -51,7 +58,7 @@ else
     //    #endregion
     //    await ProductService.GetProducts();
     //}
-     protected override void OnInitialized()
+    protected override void OnInitialized()
     {
         ProductService.ProductsChanged += StateHasChanged;
     }

@@ -20,6 +20,10 @@ namespace BlazorEcommerce.Shared
         public int CategoryId { get; set; }
         //FK CategoryId
         #endregion
+
+        #region bool 熱門商品
+        public bool Featured { get; set; }
+        #endregion
         #region ProductVariant
         public List<ProductVariant> Variants { get; set; } = new List<ProductVariant>();
         #endregion
