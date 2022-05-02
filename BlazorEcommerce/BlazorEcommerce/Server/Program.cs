@@ -4,6 +4,7 @@ global using Microsoft.AspNetCore.Http;
 global using BlazorEcommerce.Server.Data;
 global using BlazorEcommerce.Server.Services.ProductService;
 global using BlazorEcommerce.Server.Services.CategoryService;
+global using BlazorEcommerce.Server.Services.CartService;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICartService, CartService>();
 //利用額外的介面及類別可以在不更動原有資料下進行變化
 
 var app = builder.Build();
